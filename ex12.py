@@ -1,2 +1,6 @@
-age = raw_input(prompt="How old are you? ")
-print "I am {how_old} years old".format(how_old=age)
+age = raw_input("How old are you? ")
+height = raw_input("How tall are you?")
+weight = raw_input("How much do you weigh?")
+
+print "So, you're %r old, %r tall and %r heavy." % (
+	age, height, weight)
