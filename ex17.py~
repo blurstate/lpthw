@@ -1,0 +1,25 @@
+from sys import argv
+from os.path import exists
+
+script, ffile, tfile = argv
+
+print "Copying from %s to %s" % (ffile, tfile)
+
+# we coudldo these two on one line, how?
+ifile=open(ffile)
+indata = ifile.read()
+#open(ffile), indata = ffril.read()
+
+print "the input file is %d bytes long" %len(indata)
+
+print "Does the output file exist? %r" % exists(tfile)
+print "Ready, hit RETURN to continure, CTRL-C to abort."
+raw_input()
+
+outfile=open(tfile, 'w')
+outfile.write(indata)
+
+print "Alright, all done."
+
+outfile.close()
+ifile.close()
