@@ -1,18 +1,36 @@
 #parent = {'name': '', 'spouse': '', 'children': []}
-class Person():
+class Person(object):
     name = ''
     spouse = None
     age = 0
-    children = []
+    children = None
+    
+    def speak():
+        print 'hi!'
     
     def __str__(self):
         return self.name
         
-    def __repr_(self):
+    def __repr__(self):
         return self.__str__()
+        
+class Student(Person):
+    teachers = []
+    
+    def speak():
+        print 'yo'
+
 
 parent = Person()
 parent.spouse = Person()
+parent.children = []
+
+parent.speak()
+
+s = Student()
+s.name
+s.children
+s.teachers
 
 parent.name = raw_input('What is your name? > ')
 #parent.age = raw_input('What is your age? > ')
@@ -25,6 +43,7 @@ for i in range(0, num_children):
     child = Person()
     child.name = raw_input('What the name of child {}? > '.format(i+1))
     child.age = int(raw_input('What the age of child {0}? > '.format(i+1)))
+    
     parent.children.append(child)
 
 
