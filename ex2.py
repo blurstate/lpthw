@@ -1,10 +1,7 @@
-# A comment, this is so you can read your program later
-# Anything after ther # will be ignored
+#A comment, this is so you can read your program later.
+#Anyting after the # is ignored by python
+print 'I could have code like this.' # and the  # # # #
 
-print "I could have code like this" # and the comment after is ignored
+# print "This won't run"
 
-# you can also use the # to disable a line of code
-# print "this won't run"
-
-print "this will run"
-
+print "This will run."

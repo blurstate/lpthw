@@ -1,9 +1,8 @@
-# first change
-
 print "Hello World!"
 print "Hello Again"
-print "I like typeing this."
+print "I like typing this."
 print "This is fun."
-print 'Yay! Printing'
+print 'Yay! Printing.'
 print "I'd much rather you 'not'."
 print 'I "said" do not touch this.'
+print "This is change for GitHub"
