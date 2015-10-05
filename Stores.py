@@ -9,15 +9,12 @@ print 'Opened database successfully'
 conn.execute('''DROP TABLE stores;''')
 conn.execute('''CREATE TABLE STORES (number primary key not null, address not null, city not null, state not null, zipcode not null);''')
 
-
 baseUrl = 'http://www3.samsclub.com/clublocator/club_detail.aspx?myClub='
 numStores = 0
 storeNumber = 8149
 count = 1
 
 while count < 10:
-
-	
 
 	url = baseUrl + str(storeNumber)
 
