@@ -1,0 +1,7 @@
+def	do_average(prices):
+	total = 0
+
+	for p in prices:
+		total +=p
+
+		return total / len(prices)
