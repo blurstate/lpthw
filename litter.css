@@ -2,6 +2,53 @@ h1 {
 	text-align: center;
 }
 
+h2 {
+	text-align: center;
+}
+
 body{
 	background-color: #00aced;
+}
+
+.input {
+	text-align: center;
+}
+
+.tweetList {
+	float:left;
+	background-color: white;
+	padding: 10px;
+	margin-left: 20px;
+	margin-right: 10px;
+	width: 500px;
+	border-radius: 20px;
+	margin-top: 20px;
+}
+
+.favList {
+	float:right;
+	background-color: white;
+	padding: 10px;
+	margin-right: 20px;
+	margin-left: 10px;
+	width: 500px;
+	border-radius: 20px;
+	margin-top: 20px;
+}
+
+
+
+
+
+@media(max-width: 1100px){
+	.favList {
+		width:90%;
+		float: center;
+		margin: 20px 5% 20px 5%;
+	}
+	.tweetList {
+		width:90%;
+		float: center;
+		margin: 20px 5% 20px 5%
+	}
 }

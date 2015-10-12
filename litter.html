@@ -2,11 +2,39 @@
 <html>
 <head>
 	<link rel="stylesheet" type="text/css" href="normalize.css">
+	
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 	<link rel="stylesheet" type="text/css" href="litter.css">
+	<script type="text/javascript" src="litter.js"></script>
 </head>
 <body>
 	<header>
 	<h1>Litter</h1>
 	</header>
+	<div class="content">
+		<h2>New tweet</h2>
+		<div class='input'>
+			<form action method="POST">
+				<input id="newTweet" type"text">
+				<input type="submit" value="Tweet" onclick="addToList()">
+			</form>
+		</div>
+		<div class="tweetList">
+			<h2>Tweets</h2>
+			<ul class="tweets">
+				<li>Hello World!<i class="fa fa-trash"></i></li>
+				<li>How are you<i class="fa fa-trash"></i></li>
+				<li>Im great!<i class="fa fa-trash"></i></li>
+			</ul>
+		</div>
+		<div class="favList">
+			<h2>Favorite Tweets</h2>
+			<ul class="favTweets">
+				<li>1<i class="fa fa-trash"></i></li>
+				<li>2<i class="fa fa-trash"></i></li>
+				<li>3<i class="fa fa-trash"></i></li>
+			</ul>
+		</div>
+			
 </body>
 </html>
