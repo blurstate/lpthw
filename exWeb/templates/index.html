@@ -1,0 +1,29 @@
+$def with (stores, myCity)
+
+<html>
+    <head>
+        <title>All the Clubs</title>
+	</head>
+<body>
+	
+$if myCity:
+	<div>You said your city is $myCity</div>
+	<a href="/">Restart</a>
+	<br/>
+	<br/>
+$else:
+	<form action="/" method="POST">
+		<input type='text' name='myCity' placeholder='enter your city'>
+	</form>
+
+$for s in stores:
+  <div class="club">
+	  Club #: $s.number
+	  <br/>
+	  City: $s.city
+	  <br/>
+	  <br/>
+  </div>
+
+</body>
+</html>
