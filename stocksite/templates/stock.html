@@ -1,0 +1,61 @@
+$def with (stock_news, sec_filings)
+
+<!-- This is where I will code the webpage -->
+
+<!--COMPANY STOCK PAGE
+	-price history graph
+	-sector
+	-news
+	-SEC filings
+	-company info
+	-analyst opinions	-->
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Company Stock</title>
+</head>
+<body>
+
+<div class="company_info">
+	<p>Company Information</p>
+</div>
+
+<div class="sector">
+	<p>Sector</p>
+</div>
+
+<div class="price_history">
+	<p>Price History</p>	
+</div>
+
+<div class="stock_news">
+	<p>Stock News</p>
+	$for sn in stock_news:
+			<div>
+				<a href="$sn['url']">$sn['label']</a>
+			</div>
+</div>
+
+<div class="sec_filings">
+	<p>SEC Filings</p>
+	$for sf in sec_filings:
+		<div>
+			<a href="$sf['url']">$sf['label']</a>
+		</div>
+</div>
+
+<div class="analyst_opinions">
+	<p>Analyst Opinions</p>
+</div>
+
+
+</body>
+</html>
+
+
+
+
+
