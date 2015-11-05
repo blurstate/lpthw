@@ -86,6 +86,40 @@ def findArtists():
 
 		except URLError, e:
 				print "Found and Error code:", e
-			
-findArtists()
+from searchhtml import text
+
+def artistSearch(name):
+
+	name=name.replace(" ","+")
+	url="http://search.azlyrics.com/search.php?q={}" .format(name)
+	# request=Request(url)
+
+	try:
+			# responce=urlopen(request)
+			# html=responce.read()
+			html=text
+			# print html
+			searchKey='1. <a'
+			start= html.find(searchKey)
+			if start > 0:
+				start += len(searchKey)
+				stop = html.find('</a>', start)
+
+				html=html[start:stop].strip()
+
+
+				# artistList=artistString.split('<a ')
+
+
+
+	except URLError, e:
+			print "Found and Error code:", e
+
+
+
+
+
+artistSearch("Led Zeppelin")
+
+# findArtists()
 	
