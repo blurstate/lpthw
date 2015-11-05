@@ -63,34 +63,34 @@ def go():
     for idx in range(4980,4987):
         # requesting the store url
         store_url=url.format(store_number=idx+1)
-        request = Request(store_url)
+        request = Request(store_url)  #sets up the Request url
         print request
         print store_url
         
         try:
-	        response = urlopen(request)
-	        html = response.read()
+	        response = urlopen(request)  #opens URL
+	        html = response.read()      #converets the responce into a read html string
 	        # 5) pull the address info from the html
 	        # 5.1 find the address
-	        searchKey = '<div id="HeaderClubAddress">'
+	        searchKey = '<div id="HeaderClubAddress">'  #key used with .find to find the info we need
 	        
 	        start= html.find(searchKey)
 	        if start > 0 :
 	            start += len(searchKey)
-	            stop = html.find('</div>', start)
+	            stop = html.find('</div>', start)   #key used to braket off the info
 	            print start, stop
 	        
 	        
 	            
-	            addressHtml = html[start:stop].strip()
-	            addressHtml = addressHtml.replace( '&nbsp', '').replace(';','')
-	            addressArray = addressHtml.split('|')
+	            addressHtml = html[start:stop].strip() #strip takes evertyhing out that is not between start:stop
+	            addressHtml = addressHtml.replace( '&nbsp', '').replace(';','') #replaces text we dont need with nothing so that we have a cleaner string
+	            addressArray = addressHtml.split('|') #uses | to split the html into a stacking array
 	           # print ,addressHtml
 	            
 	           
 	            print "=============="
 	        
-	           # for idx, x in enumerate(addressArray):
+	           # for idx, x in enumerate(addressArray):    #used to see what info is in what spot of the array
 	            #     print idx, x
 	            
 	            print"==============="
@@ -98,8 +98,8 @@ def go():
 	            street= addressArray[0]
 	            
 	            addressHtml= addressArray[1]
-	            addressArray= addressHtml.split('<br />')
-	            phone = addressArray[1]
+	            addressArray= addressHtml.split('<br />')        
+	            phone = addressArray[1]                         #allocates the info from the array we built and sets it into the variables we want ie phon address and such
 	            
 	            addressHtml = addressArray[0]
 	            addressArray= addressHtml.split(', ')
