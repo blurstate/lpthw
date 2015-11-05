@@ -46,12 +46,16 @@ outs = 0
 runs = 0
 innings = 1.0
 inning_side = 'Top'
-
+box_score = """
+        Team 		| 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | R | H | E |
+        Home 		|   |   |   |   |   |   |   |   |   |   |   |   |
+        Visitor	    |   |   |   |   |   |   |   |   |   |   |   |   |
+            """
 
 while True:
 
     # record the result
-    pitch = raw_input('What is the result of the pitch? (B)all (S)trike (H)ome Run. (Q) to Quit. (P) to Print.  ')
+    pitch = raw_input('What is the result of the pitch? (B)all (S)trike (H)ome Run. (Q) to Quit. (P) to Print. (BS) to print the Box Score.  ')
     pitch = pitch.upper().strip()
 
     # 2. Process the result
@@ -74,6 +78,9 @@ while True:
     elif pitch == 'P':
         for s in summary:
             print s
+
+    elif pitch == 'BS':
+        print box_score
 
     else:
         print "{} is not a valid pitch. Enter B, S, H, or Q.".format(pitch)
@@ -113,11 +120,12 @@ while True:
 
         else:
             inning_side = 'Bottom'
-    message = "Its the {} of the {} inning. There are {} Balls, {} Strikes, {} Hits, {} Outs, and {} Runs.".format(inning_side,int(innings),balls,
-                                                                                                               strikes,
-                                                                                                               hits,
-                                                                                                               outs,
-                                                                                                               runs)
+    message = "Its the {} of the {} inning. There are {} Balls, {} Strikes, {} Hits, {} Outs, and {} Runs.".format(inning_side,
+        int(innings),balls,strikes,hits,outs,runs)
+
+
+
+
 
 
     if pitch != 'P':
@@ -131,3 +139,8 @@ while True:
 
 
     # 4. Print box score
+    # box_score = """
+    #     Team 		| 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | R | H | E |
+    #     Home 		|   |   |   |   |   |   |   |   |   |   |   |   |
+    #     Visitor	    |   |   |   |   |   |   |   |   |   |   |   |   |
+    #         """
