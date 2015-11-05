@@ -44,6 +44,6 @@ for y in years:
         if y not in m.years:
             m.years.append(y)
 
-for m in makes.values():
+for m in makes.items():
     m.years = sorted(m.years)
-    print m.name, m.years[-1], ' - ', m.years[0], '\n'
+    print m.name, m.years[0], ' - ', m.years[-1], '\n'
