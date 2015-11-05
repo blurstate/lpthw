@@ -1,6 +1,10 @@
 from urllib2 import Request, urlopen, URLError
 import sqlite3
 
+
+
+GREETING = 'Yo'
+
 class Store(object):
     def __init__(self):
             self.number = ''
@@ -29,20 +33,14 @@ def go():
         conn = sqlite3.connect('samsclub.db')
         print "Opened database succesfully"
     
-    # conn.execute(''' Create table stores
- #        (STORE_NUM int primary key not null,
- #        STREET          TEXT        NOT NULL,
- #        CITY            TEXT        NOT NULL,
- #        STATE           TEXT        NOT NULL,
- #        ZIP             TEXT        NOT NULL,
- #        PHONE           TEXT        NOT NULL,); ''')
-    
+    conn.execute(''' Create table stores (STORE_NUM int primary key not null ,STREET TEXT NOT NULL, CITY TEXT NOT NULL, STATE TEXT NOT NULL, ZIP TEXT NOT NULL, PHONE TEXT NOT NULL); ''')
+
 #    Execution plan
     # 3) learn how URLs are structured (http://gam.target.com/store-locator/sl/Alabaster-Store/<store number>
         url = 'http://www3.samsclub.com/clublocator/club_detail.aspx?myclub={store_number}'
     
     # 4) loop from 1 to 10000, 
-        for idx in range(4968, 4990):
+        for idx in range(4975, 4990):
         # requesting the store url
                 store_url = url.format(store_number=idx+1)
                 print store_url

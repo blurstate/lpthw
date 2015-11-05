@@ -1,0 +1,16 @@
+select products.productname, products.price, products.cus FROM [Products]
+--order by price desc
+--limit 5
+join orderdetails on products.productid = orderdetails.productid
+join orders on orders.orderid = orderdetails.orderid
+join customers on customers.customerid = orders.customerid
+where 
+products.productid in (select productid from products order by price desc limit 5)
+
+
+
+NHTSA
+
+Step 1 record the years the govt tracks safety data
+Step 2 record each make we find in each year, added the year to the make's year list
+Step 3 printed out makes and first and last year

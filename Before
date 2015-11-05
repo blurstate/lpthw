@@ -1,0 +1,13 @@
+# Name, students, subject, teacher
+
+x = {'students': '', 'subject': '', 'teacher': ''}
+
+x['subject'] = 'Python'
+x['teacher'] = 'Justin'
+x['students'] = 'Jeremy'
+#add values to dict
+print x
+
+x['students']= 'Chris'
+print x
+
