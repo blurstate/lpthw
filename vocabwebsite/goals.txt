@@ -1,0 +1,16 @@
+write program to take in a block of text and convernt into a list of individual words
+have it sort through the words and return a dictionary giving all the unique words and the number of times they show up 
+
+build a web site that will alow you to look at a database of artist, and their works
+the artist should be in a class that contains there name, info, and catagorized strings of there works. (possibly a second class that gives the name of the work and has a string of the song)
+
+idea for the site is to be able to request an artist and see the lyrics of all their songs. then use a program to break down and count all the unique words and be able to compare artist vocabulary to others. 
+
+other things the site should do is jsut be able to find the lyrics of an artist in the database
+
+and alow a request of an artits that is not in the data base. (an automated program to fill this data base would be nice but some work might have to be done by programer to customize the webscraper to get the data)
+-so a request list would be a good way to see what artits people want in the data base so they can use the programs to compare artist with eachother. 
+
+for visuals. a pic of the artits and a printted bio with info would be nice. along with maybe a rating for the artits bassed on there use of words and such 
+
+

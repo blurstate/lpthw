@@ -1,0 +1,76 @@
+Steps to build the site
+
+Front End:
+	HTML for site pages
+		1:Home page
+		2:Individual Artits page
+		3:Artist Compare Page
+		4:Artist seach page
+		5:Artist Request Page
+	Style for each page
+
+
+
+Back End:
+
+	:Text sorter(takes a body of text and sorts words in order from most used to least used. along with a counter of how many time the word is used in the text)
+	
+	:Artist and song Database 
+	
+	:Rating Progam(takes stats gleaned from the sorted word list and produces a rating for the artist)
+	
+	:WebScraping (will take a given artist name and use a built in URL to seach for the aritst lyrics, if none can be find will return a false bool to be used in the searchfor())
+	
+	:Search for() takes in artist name and passes it to WebScraping() if WebScraping() finds the data i needs will create a new class for the aritst and their songs then show the user the data and ask them if they wish to add the data into the database. if WebScraping() returns a Flase bool then it will inform the user and add the artist to the list of artits that will need to be added using another method. 
+
+
+
+
+
+
+
+
+
+
+Classes 
+
+Artist	
+	:Name
+	:Artist id
+	:Age
+	:Origin 
+	:Carreer Age
+	:Image File (potentialy could give a found photo of artist when webscraping )
+	:Songs-class
+	
+Songs
+	:Name
+	:Album
+	:Artist id
+	:Year 
+	:Lyrics 
+
+
+
+
+
+
+Goal of Prjocet?  Construct a site that will give access to a database of aritis and their song lyrics. 
+
+
+
+
+Q: what will you be able to do on the site?
+A: home page should have a few different options. 
+	1: General search for artist and their songs 
+		: Artist page should include: Name, geanre, time period, List of songs with lyrics 
+	2: a button to compaire two artits against eachother
+		: This will compare two artits with a ranking that looks at criteria such as vocabulary 
+			;things like.... number of times they have used there most used word 
+			;general variaity over total number of words used 
+			;other ideas to come---
+	3: a submit artist option to add new artits that are not contained in the database 
+		: I will gather data on a number of artits and put them into the database to start the site of. however, i would like to have a query list where other people can ask for artits to be added to the site. Finding a site that will have a format where i can scrape all the lyrics could prove difficult so im expecting some modifcations to my web scraper program to be made. 
+		: however, if i can find a good site that has a simple search url the database could be updated atuomaticly if the program can run all the way through. 
+		
+		
