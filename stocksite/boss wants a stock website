@@ -1,0 +1,120 @@
+#work on this for homework
+
+
+boss wants a stock website
+
+are we talking about the stock market? Yes
+what kind stocks do we want to track? Publicly traded. US stocks
+how many stocks are we tracking? all of them.
+what is the goal of the website? 1) provide overview of recent news 2) show company info 3) show price history 
+	4) search
+what is the format? homepage: news summary for today and searchbar, search results page, individual stock page
+what data do you want on the individual stock page? graph of price history, news, sector its in(growth, value, etc)
+home page news summary: what is the character limit, do we need a link? list of headlines that are clickable (link to 		external news article)
+do we have sources for news or stocks? no.
+what is company info? Name, description, link to corporate website, ceo, anything else interesting
+how far back do we want price history to go? all the way back. since beginning of the stock
+should people create accounts? sure. and they should be able to save favorites.
+how does the search bar work? search for company name or ticker symbol
+what screen size should this support? mobile phone
+
+
+
+
+Tasks
+*Sketch design for each page
+	-homepage
+	-stock page
+	-profile page
+
+*Code the front end (html, browser)
+	-homepage
+	-stock page
+	-profile page
+
+*Code the back end (python, db, server)
+	-Create database
+	-Code the classes
+	-Code the views
+		-homepage
+		-stock page
+		-profile
+
+*Load data
+  -Find source
+	-input manually
+	-write code to load it
+
+
+
+HOMEPAGE
+-login
+-search bar 
+-favorites section
+-news summary for the day (headlines from our database)
+	(-Q: where should the news from?
+	-A: google news, api, ticker service
+	-A: our database)
+	-tabs for all/my news
+
+
+PROFILE PAGE
+-favorite stock list (links to stock page)
+-name, email, password
+
+
+COMPANY STOCK PAGE
+-price history graph
+-sector
+-news
+-SEC filings
+-company info
+-analyst opinions
+
+
+Classes
+-company
+	-sector
+	-ticker symbol or id
+	-name
+	-ceo
+	-description
+	-weblink to corporate
+	-recent_price()
+	-graph()
+	-get_news()
+
+-user
+	-name
+	-password
+	-email
+	
+-favorites
+	-user id
+	-company id
+
+-news
+	-url
+	-author
+	-headline
+	-published
+	-company
+
+-stockPrice
+	-close_date
+	-company
+	-opening_price
+	-closing_price
+
+-rating
+	-company
+	-source
+	-rating
+	-rating_date
+
+
+DATABASE TABLES
+
+
+
+
