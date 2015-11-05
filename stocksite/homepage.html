@@ -1,0 +1,48 @@
+<!-- This is where I will code the webpage -->
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>My Stock Site</title>
+	<style>
+		div	{
+			border: solid 1px;
+			margin-bottom: 5px;
+		}
+	</style>
+</head>
+<body>
+	<div class="login">
+		<p>Login</p>
+		<form action="/" method="GET">
+		<input type="text" name="Email" placeholder="Email">
+		<input type="text" name="Password" placeholder="Password">
+		<input type="submit" value="Login">
+		</form>
+
+	</div>
+	<div class="search">
+		<form action="/" method="GET">
+		<input type="text" name="Search" placeholder="Stock Ticker">
+		<input type="submit" value="Search">
+		</form>
+	</div>
+	<div class="favorites">
+		<h2>Favorites</h2>
+			<div><a href="">APPL</a>:<span>+1.5%</span></div>
+			<div><a href="">GE</a>:<span>-0.3%</span></div>
+	</div>
+	<div class="news">
+		News
+			<div>
+			<a href="http://www.google.com">Big News in Programming!</a>
+			</div>
+			<div>
+				<a href="http://www.google.com">Man Walks On Mars!</a>
+			</div>
+	</div>
+	
+</body>
+</html>
