@@ -49,7 +49,7 @@ class Store(object):
             sql += """
                 where city = ?
             """
-            params.append(city)
+            params.append(city) 
         
         cursor = connection.execute(sql, params)
         

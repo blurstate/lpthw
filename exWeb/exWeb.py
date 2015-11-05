@@ -26,11 +26,7 @@ class index:
         form = web.input(myCity="")
         city = form.myCity
         
-        cityStores = []
         allStores = storelists.Store.getAll(city=city)
-        # for s in allStores:
-        #     if s.city == city:
-        #         cityStores.append(s)
                 
         return render.index(stores=allStores, myCity=city)    
     
