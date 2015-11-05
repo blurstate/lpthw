@@ -38,18 +38,20 @@
 # allow score keeper to record pitch (ball/strike/hit)
 # 1. Allow to record a pitch 
 # ask the user the result of the pitch (ball/strike/hit)
-
+summary = []
 strikes = 0
 balls = 0
 hits = 0
 outs = 0
 runs = 0
 innings = 1.0
+inning_side = 'Top'
+
 
 while True:
 
     # record the result
-    pitch = raw_input('What is the result of the pitch? (B)all (S)trike (H)ome Run. (Q) to quit.  ')
+    pitch = raw_input('What is the result of the pitch? (B)all (S)trike (H)ome Run. (Q) to Quit. (P) to Print.  ')
     pitch = pitch.upper().strip()
 
     # 2. Process the result
@@ -68,6 +70,10 @@ while True:
     elif pitch == 'Q':
         print "Goodbye"
         break
+
+    elif pitch == 'P':
+        for s in summary:
+            print s
 
     else:
         print "{} is not a valid pitch. Enter B, S, H, or Q.".format(pitch)
@@ -91,6 +97,7 @@ while True:
     # at bat summary
     #
 
+
     # inning
 
     # (3 outs per half inning)
@@ -101,16 +108,26 @@ while True:
         outs = 0
         innings += .5
 
-    print "Its the {} of the {} inning. There are {} Balls, {} Strikes, {} Hits, {} Outs, and {} Runs.".format(balls,
+        if innings == int(innings):
+            inning_side = 'Top'
+
+        else:
+            inning_side = 'Bottom'
+    message = "Its the {} of the {} inning. There are {} Balls, {} Strikes, {} Hits, {} Outs, and {} Runs.".format(inning_side,int(innings),balls,
                                                                                                                strikes,
                                                                                                                hits,
                                                                                                                outs,
                                                                                                                runs)
 
 
-
+    if pitch != 'P':
+        summary.append(message)
+        print message
 
 
 
     # 3. Print summary
+    #  a. Give the user a way to print the summary
+
+
     # 4. Print box score
