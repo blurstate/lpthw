@@ -35,14 +35,16 @@ b = 0
 h = 0
 o = 0
 i = 1
-summary = [{'strike_count': 0, 'ball_count': 0, 'hit_count': 0, 'pitch_count': 0}]
+i_side = 'Top'
+summary = []
 
 
 while True:
     # record result
-    pitch = raw_input('What is the result of the pitch? (b)all (s)trike (h)it (q)uit to exit ')
+    pitch = raw_input('What is the result of the pitch? (b)all (s)trike (h)it (p)rint (box)score (q)uit to exit ')
     pitch = pitch.lower().strip()
-    print 'The ball was a {}.'.format(pitch)
+
+    # print 'The ball was a {}.'.format(pitch)
     if pitch == 's':
         s += 1
         if s == 3:
@@ -63,7 +65,18 @@ while True:
     elif pitch == 'h':
         h = h + 1
         #print 'The hit count is {} '.format(h)
-     
+
+    elif pitch == 'p':
+        for s in summary:
+            print s
+
+    elif pitch == 'box':
+        print '''
+                 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | R | H | E
+           Home    |   |   |   |   |   |   |   |   |   |   |
+         Visitor   |   |   |   |   |   |   |   |   |   |   |   '''
+#list of dict, innings, etc...
+
 
     else:
         pitch == 'q'
@@ -85,25 +98,29 @@ while True:
      
     
     if i == int(i):
-        print 'It is the top of the {} inning '.format(i)
+        i_side = 'Top'
     else:
-        print 'It is the bottom of the {} inning '.format(i)
+        i_side = 'Bottom'
         
-    print 'The strike count is {} and the ball count is {} and there is {} out(s) '.format(s, b, o)
+    message = 'The strike count is {} and the ball count is {}, there is {} hits, and there is {} out(s) in the {} of the {} inning'.format(s, b, h, o, i_side, int(i))
 
 
+    if pitch != 'p':
+
+
+        summary.append(message)
 #print out summary of balls and strikes at this point and at any time
-#use for loop to add to strike_count
-### Need HELP WITH THIS PART
 
-    for p in pitch:
-        if pitch == 's':
-            summary.append({'strike_count': +1, 'pitch_count': +1})
-        elif pitch == 'b':
-            summary.append({'ball_count': +1, 'pitch_count': +1})
-        else:
-            summary.append({'hit_count': +1, 'pitch_count': +1})
-    print summary
+        print message
+
+    # for p in pitch:
+    #     if pitch == 's':
+    #         summary.append({'strike_count': s, 'pitch_count': +1})
+    #     elif pitch == 'b':
+    #         summary.append({'ball_count': +1, 'pitch_count': +1})
+    #     else:
+    #         summary.append({'hit_count': +1, 'pitch_count': +1})
+    # print summary
 
 
 
