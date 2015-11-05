@@ -41,7 +41,7 @@ summary = []
 
 while True:
     # record result
-    pitch = raw_input('What is the result of the pitch? (b)all (s)trike (h)it (p)rint (q)uit to exit ')
+    pitch = raw_input('What is the result of the pitch? (b)all (s)trike (h)it (p)rint (box)score (q)uit to exit ')
     pitch = pitch.lower().strip()
 
     # print 'The ball was a {}.'.format(pitch)
@@ -69,6 +69,12 @@ while True:
     elif pitch == 'p':
         for s in summary:
             print s
+
+    elif pitch == 'box':
+        print '''1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | R | H | E
+           Home    |   |   |   |   |   |   |   |   |   |   |
+         Visitor   |   |   |   |   |   |   |   |   |   |   |   '''
+#list of dict, innings, etc...
 
 
     else:
