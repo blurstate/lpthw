@@ -71,7 +71,8 @@ while True:
             print s
 
     elif pitch == 'box':
-        print '''1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | R | H | E
+        print '''
+                 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | R | H | E
            Home    |   |   |   |   |   |   |   |   |   |   |
          Visitor   |   |   |   |   |   |   |   |   |   |   |   '''
 #list of dict, innings, etc...
