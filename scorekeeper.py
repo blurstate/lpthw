@@ -46,11 +46,11 @@ outs = 0
 runs = 0
 innings = 1.0
 inning_side = 'Top'
-box_score = """
-        Team 		| 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | R | H | E |
-        Home 		|   |   |   |   |   |   |   |   |   |   |   |   |
-        Visitor	    |   |   |   |   |   |   |   |   |   |   |   |   |
-            """
+inning_list = [
+
+]
+
+
 
 while True:
 
@@ -80,7 +80,11 @@ while True:
             print s
 
     elif pitch == 'BS':
-        print box_score
+        for il in inning_list:
+            print "Team 	| 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | R | H | E |"
+            print "Visitor  |{} |{} |{} |{} |{} |{} |{} |{} |{} |{} |{} |{} |".format(il)
+            print "Home  	|{} |{} |{} |{} |{} |{} |{} |{} |{} |{} |{} |{} |".format(il)
+
 
     else:
         print "{} is not a valid pitch. Enter B, S, H, or Q.".format(pitch)
@@ -120,6 +124,7 @@ while True:
 
         else:
             inning_side = 'Bottom'
+
     message = "Its the {} of the {} inning. There are {} Balls, {} Strikes, {} Hits, {} Outs, and {} Runs.".format(inning_side,
         int(innings),balls,strikes,hits,outs,runs)
 
@@ -139,8 +144,3 @@ while True:
 
 
     # 4. Print box score
-    # box_score = """
-    #     Team 		| 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | R | H | E |
-    #     Home 		|   |   |   |   |   |   |   |   |   |   |   |   |
-    #     Visitor	    |   |   |   |   |   |   |   |   |   |   |   |   |
-    #         """
