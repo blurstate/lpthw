@@ -9,24 +9,28 @@ from time import sleep
 
 
 
-class Artist():
-	name=''
-	album=[]
-	url=""
+class Artist(object):
+	def __init__(self):
+		self.name=''
+		self.album=[]
+		self.url=""
 	
 	artistId=0
 	
-class Album():
-	name=''
-	song=[]
-	artistId=0
-	year=0
+class Album(object):
+	def __init__(self):
+		self.name=''
+		self.songs=[]
+		self.artistId=0
+		self.year="N/A"
 	
 	
-class Song():
-	name=''
-	text=''
-	artistId=0
+class Song(object):
+	def __init__(self):
+		self.name=''
+		self.text=''
+		self.songurl=''
+		self.artistId=0
 	
 	
 
@@ -92,8 +96,10 @@ def findArtists():
 
 		except URLError, e:
 				print "Found and Error code:", e
+
 from searchhtml import text
 from artisthtml import artisttext
+from songhtml import songstring
 
 def artistSearch(name):
 
@@ -124,15 +130,17 @@ def artistSearch(name):
 			
 			x=0
 			while(x==0):
-				ask=raw_input("Is this the right artist? (Y)yes or (N)no: ")
+				#ask=raw_input("Is this the right artist? (Y)yes or (N)no: ")
+				ask='y'
 				if (ask.lower()=='y'):
 					a=Artist()
 					
 					
 					a.name=artistName
 					a.url=artistUrl
+
 					x+=1
-					#return(a)
+
 						
 						
 						
@@ -144,7 +152,7 @@ def artistSearch(name):
 				else:
 					print"Please enter (Y) or (N)"
 						
-	
+
 	except URLError, e:
 			print "Found and Error code:", e
 			
@@ -154,7 +162,7 @@ def artistSearch(name):
 	
 	try:						#this step takes the album and song list url and fills the classes so that the artist class will have a list of albums and each album will have a list of songs with a url for each lyric page 
 		
-		
+
 		#responce=urlopen(request)
 		#html=responce.read()
 		html=artisttext
@@ -179,35 +187,111 @@ def artistSearch(name):
 			stop=i.find(')',start)
 			album.year=i[start:stop].strip()
 			
-			print album.name
-			print album.year
+			#print album.name
+			#print album.year
 			
-			a.album.append(album)
+			#a.album.append(album)
 			
 			songList=i.split("<a")
 			count=0
+			singlesList=[]
+			singlesMark=False
+
 			for i in songList:
+
 				if (i[0:9]==' href="..'):
-					song=Song()
-					start=i.find(">")
-					start+=len(">")
-					stop=i.find("</a>",start)
-					song.name=i[start:stop].strip()
-					print song.name
-							
-			print"==========================="		
-		
+					if (singlesMark==True):			# strips the song name and url from html
+						#find name
+						song=Song()
+						start=i.find(">")
+						start+=len(">")
+						stop=i.find("</a>",start)
+						song.name=i[start:stop].strip()
+						#find url
+						start=i.find('"..')
+						start+=len('"..>')
+						stop=i.find('" t',start)
+						song.songurl=i[start:stop].strip()
+						#append
+						singlesList.append(song)
+
+
+
+
+
+					elif (singlesMark==False):		#strips the song name and url from html and appends to the album class list
+						#find name
+						song=Song()
+						start=i.find(">")
+						start+=len(">")
+						stop=i.find("</a>",start)
+						song.name=i[start:stop].strip()
+						#find url
+						start=i.find('"..')
+						start+=len('"..>')
+						stop=i.find('" t',start)
+						song.songurl=i[start:stop].strip()
+						#append
+						album.songs.append(song)
+
+				if (i[162:199]=='<div class="album">other songs:</div>'):
+					print '=======other songs ======'
+					singlesMark=True
+
+			print"===========appending songs==========================="
+
+			# if singlesMark==True:
+			# 	album.name="Single Tracks"
+			# 	for i in singlesList:
+			# 		album.songs.append(i.name)
+			# 		#print i.name
+			# 	a.album.append(album)
+			a.album.append(album)
+			if singlesMark==True:
+				singleAlbum=Album()
+				singleAlbum.name="Single Tracks"
+				for i in singlesList:
+					singleAlbum.songs.append(i)
+				a.album.append(singleAlbum)
+
 
 
 	except URLError, e:
 			print "Found and Error code:", e
+
+	for i in a.album[1:2]:
+		print"====================="
+		print i.name
+		print i.year
+		print"=====================","====================="
+		for x in i.songs[0:1]:
+			print x.name
+			print "url code ==", x.songurl
+			try:
+				# url="http://www.azlyrics.com/{}".format(x.songurl)
+				# request=Request(url)
+				# responce=urlopen(request)
+				# songhtml=responce.read()
+				lyrics=songstring
+			except URLError, e:
+				print "Found an Error Code:", e
+
+			start=lyrics.find("that. -->")
+			start+=len("that. -->")
+			stop=lyrics.find("<!--",start)
+			print start, stop
+			lyrics=lyrics[start:stop].strip()
+			x.text=lyrics
+			print x.text
+
+
 
 
 
 
 
 artistSearch("Led Zeppelin")
-#print a.name, a.url
+
 
 #findArtists()
 	
